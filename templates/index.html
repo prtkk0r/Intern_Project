@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Of Stones</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stoke:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lemon&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stoke:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .reveal {
+            position: relative;
+            opacity: 0;
+        }
+
+        .reveal.active {
+            opacity: 1;
+        }
+
+        .active.fade-bottom {
+            animation: fade-bottom 0.5s ease-in;
+        }
+
+        .active.fade-left {
+            animation: fade-left 0.5s ease-in;
+        }
+
+        .active.fade-right {
+            animation: fade-right 0.5s ease-in;
+        }
+
+        @keyframes fade-bottom {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-left {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-right {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+    <script defer>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+    </script>
+
+</head>
+
+<body>
+
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"
+                style="font-family: Lemon, serif;font-style: normal;margin-right: 30px;font-size: 30px;">Legacy
+                Of
+                Stones</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="./auth.html" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Our Collections
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#lingraj_temple">lingaraj Temple</a></li>
+                            <li><a class="dropdown-item" href="#sun_temple">Sun Temple</a></li>
+                            <li><a class="dropdown-item" href="#radha_temple">Shri Radha Madan Mohan Temple</a></li>
+                            <li><a class="dropdown-item" href="#ranganathaswamy_temple">Ranganathaswamy Temple</a></li>
+                            <li><a class="dropdown-item" href="#kailasha_temple">Kailasha Temple</a></li>
+                            <li><a class="dropdown-item" href="#shore_temple">Shore Temple</a></li>
+                            <li><a class="dropdown-item" href="#hampi_temple">Hampi Virupaksha Temple</a></li>
+                            <li><a class="dropdown-item" href="brahadeshwara_Temple">Brahadeshwara Temple</a></li>
+                            <li><a class="dropdown-item" href="#badrinath_temple">Badrinath Temple</a></li>
+                            <li><a class="dropdown-item" href="#dwarka_temple">Dwarkadhish Temple</a></li>
+                            <li><a class="dropdown-item" href="#kumbeshwar_temple">Kumbeshwara Temple</a></li>
+                            <li><a class="dropdown-item" href="#airavatesvara_Temple">Airavatesvara Temple</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search Here" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit"
+                        style="border-color:blue; color: white;">Search</button>
+                </form> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- marquee -->
+    <section class="loop">
+        <p class="loop-text">जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय
+            श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681;
+            जय श्री राम &#128681;</p>
+        <p class="loop-text">जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय
+            श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681;
+            जय श्री राम &#128681;</p>
+    </section>
+
+    <!-- main carousel -->
+    <section>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style=" height:635px ;">
+            <div class="carousel-inner">
+                <div class="carousel-item active"
+                    style="background-image: url(../static/images/temp2.jpg);background-repeat: no-repeat;background-size: cover;">
+                    <div class="glass"
+                        style="background: linear-gradient(to right bottom, rgba(97, 53, 1, 0.566), rgba(255, 255, 255, 1.8));">
+                        <p class="glass-text" style="color:rgb(4, 0, 55);">
+                            <br>
+                            Welcome to Legacy of Stones, where history and spirituality converge in the ancient
+                            tapestry
+                            of India's oldest temples. Explore the timeless beauty and architectural marvels that
+                            echo
+                            the whispers of bygone eras.
+                            <br>
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item"
+                    style="background-image: url(../static/images/prem_mandir.jpg);background-repeat: no-repeat;background-size: cover;">
+                    <div class="glass"
+                        style="background: linear-gradient(to right bottom, rgba(53, 88, 205, 0.5), rgba(72, 40, 0, 1.5));">
+                        <p class="glass-text" style="color:rgb(245, 220, 197);">
+                            <br>
+                            Whispers of ancient prayers linger in the stone. Welcome to Legacy of Stones, where
+                            India's
+                            oldest temples unveil their secrets. Explore history carved in grandeur, where devotion
+                            echoes through ages.
+                            <br>
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item"
+                    style="background-image: url(../static/images/Hampi_virupaksha_temple.jpg);background-repeat: no-repeat;background-size: cover;">
+                    <div class="glass"
+                        style="background: linear-gradient(to right bottom, rgba(53, 88, 205, 0.5), rgba(255, 255, 255, 1.8));">
+                        <p class="glass-text" style="color: rgb(4, 0, 55);padding-top: 50px;">
+                            Unveiling India's soul, one hallowed site at a time. Legacy of Stones opens doors to
+                            ancient
+                            wisdom, architectural marvels, and spiritual journeys. Step into the past, where time
+                            whispers in timeless stone.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- about -->
+    <section>
+        <div class="content reveal fade-bottom" id="about" style="padding-top:70px;">
+            <h1 style="text-align: center;">GET KNOWN TO US</h1>
+            <hr>
+            <div class="container px-4 text-center">
+                <div class="reveal fade-bottom row gx-5">
+                    <div id="about" class="col">
+                        <div class="p-3" style="color:#010143;text-align: center;">
+                            Step into the enchanting world of "Legacy of Stones" Unveiling the Magic of Architecture in
+                            India's Oldest Temples!
+                            <br>
+                            <div style="background-size: cover;">
+                                <img src="../static/images/bg_img.jpg" alt="bg_img" style="height: 500px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3" style="color: #010143;text-align: justify;">
+                            Embark on a captivating journey through time and marvel at the architectural
+                            wonders that define India's
+                            spiritual heritage. At "Legacy of Stones," we unravel the secrets held within the ancient
+                            stones that stand
+                            as silent witnesses to centuries of artistry and devotion.
+                            Witness the symphony of history and craftsmanship, as we guide you through the intricate
+                            details and divine
+                            significance of each temple. "Legacy of Stones" is your portal to explore the magical fusion
+                            of spirituality
+                            and architectural marvels within India's oldest temples.
+                            <br><br>
+                            Join us on this odyssey where the legacy of stones comes to life, and the echoes of ancient
+                            architecture
+                            resonate through the ages. Experience the allure of our cultural heritage welcome to "Legacy
+                            of Stones,"
+                            where magic is etched in every stone!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </section>
+
+    <!-- bg img -->
+    <section
+        style="background:linear-gradient(to bottom, rgba(0, 0, 0, 0.258), rgba(255, 255, 255, 0.199)),
+    url('../static/images/bg_nav.jpg');background-repeat: no-repeat;background-size: cover; height: 100vh;display: flex;justify-content: center;align-items: center; background-attachment: fixed;">
+        <!-- cards section -->
+        <div class="container reveal fade-bottom">
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container-fluid text-center">
+                            <div class="row">
+                                <div class="col-md-4 ">
+                                    <div class="card mb-3">
+                                        <img src="../static/images/lingraj_temple.jpg" class="card-img-top"
+                                            alt="card.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Lingaraj Temple, Bhubaneswar</h5>
+                                            <p class="card-text">The Lingaraj Temple is an ancient temple situated in
+                                                the city of Bhubaneswar and is the largest one situated in the city.</p>
+                                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <img src="../static/images/Konarka_Temple.jpg" class="card-img-top"
+                                            alt="card.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sun Temple, Konark</h5>
+                                            <p class="card-text">Situated on the northeastern corner of Puri, Konark Sun
+                                                Temple is a UNESCO World Heritage site and prime tourist attractions of
+                                                Odisha.</p>
+                                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <img src="../static/images/sri_radha_madan_mohan_temple_vrindavan.jpg"
+                                            class="card-img-top" alt="card.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sri Radha Mohan Temple</h5>
+                                            <p class="card-text">Shri Radha Madan Mohan Temple, is a Hindu temple
+                                                situated in Vrindavan. It is one of the oldest and highly revered temple
+                                                of Vrindavan.</p>
+                                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item ">
+                        <div class="container-fluid text-center">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <img src="../static/images/ranganathaswamy.jpg" class="card-img-top"
+                                            alt="card.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sri Ranganathaswamy Temple</h5>
+                                            <p class="card-text">Sri Ranganathaswamy Temple, a beautifully carved temple
+                                                complex, is located in Srirangapatna in the south-western state of
+                                                Karnataka.</p>
+                                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <img src="../static/images/Kailasha_temple.JPG" class="card-img-top"
+                                            alt="card.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Kailasha temple, Chh.Sambhaji Nagar</h5>
+                                            <p class="card-text">The Kailasha temple is the largest monolithic rock-cut
+                                                structure in the world located in cave 16 of Ellora Caves.</p>
+                                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <img src="../static/images/shore_temple.jpg" class="card-img-top"
+                                            alt="card.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Shore Temple, Mahabalipuram</h5>
+                                            <p class="card-text">Shore Temple is one of the oldest South Indian temples
+                                                constructed in the Dravidian style and depicts the royal taste of the
+                                                Pallava dynasty.</p>
+                                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item ">
+                        <div class="container-fluid text-center">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <img src="../static/images/hampi.jpg" class="card-img-top" alt="card.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hazara Rama Temple, Hampi</h5>
+                                            <p class="card-text">It referred to as the Ramachandra temple in
+                                                inscriptions, occupied the western part of the urban core in the royal
+                                                centre section of Hampi.</p>
+                                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <img src="../static/images/Brahadeshwara_Temple.jpg" class="card-img-top"
+                                            alt="card.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Brahadeshwara Temple, Thanjevur</h5>
+                                            <p class="card-text">The biggest attraction of Thanjavur - The Brahadeshwara
+                                                Temple, also known as the Big Temple.</p>
+                                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <img src="../static/images/Badrinath_Temple.jpg" class="card-img-top"
+                                            alt="card.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Badrinath Temple, Badrinath</h5>
+                                            <p class="card-text">Badrinath Temple or the Badrinarayan Temple dedicated
+                                                to Lord Vishnu is one of the four Char Dham pilgrimage yatras.</p>
+                                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item ">
+                        <div class="container-fluid text-center">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <img src="../static/images/dwarka.jpg" class="card-img-top" alt="card.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Dwarkadhish Temple, Dwarka</h5>
+                                            <p class="card-text">Dwarkadhish Temple also known as the Jagat Mandir, is a
+                                                Chalukya styled architecture, dedicated to Lord Krishna.</p>
+                                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <img src="../static/images/Kumbeshwara_Temple.jpg" class="card-img-top"
+                                            alt="card.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Kumbeshwara Temple, Kumbakonam</h5>
+                                            <p class="card-text">Believed to have been constructed in the 7th century
+                                                A.D by the Cholas, It is one of the grandest and the oldest Shiva temple
+                                                in the town.</p>
+                                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <img src="../static/images/Airavatesvara_Temple.jpg" class="card-img-top"
+                                            alt="card.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Airavatesvara Temple, Kumbakonam</h5>
+                                            <p class="card-text">Airavatesvara Temple is a revered Hindu temple and a
+                                                UNESCO world heritage site. Part of the popular trio the Great Living
+                                                Chola Temple.</p>
+                                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev" style="display: flex;justify-content: center;margin: 90px;width: 30px;">
+                    <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next " type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next" style="display: flex;justify-content: center;margin: 90px;width: 30px;">
+                    <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- content -->
+    <section>
+        <div class="container px-4 glass-text">
+            <div id="lingraj_temple" class="reveal fade-right row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/lingraj_temple.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html" title="Get more insights">
+                                    <h1>Lingaraj Temple, Bhubaneswar</h1>
+                                </a>
+                                <br>
+                                The Lingaraj Temple is an ancient temple situated in
+                                the city of Bhubaneswar and is the largest one situated in the city.
+                            </p>
+                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sun_temple" class="reveal fade-left row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Sun Temple, Konark</h1>
+                                </a>
+                                <br>
+                                Situated on the northeastern corner of Puri, Konark Sun
+                                Temple is a UNESCO World Heritage site and prime tourist attractions of
+                                Odisha.
+                            </p>
+                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Konarka_Temple.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div id="radha_temple" class="reveal fade-right row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/sri_radha_madan_mohan_temple_vrindavan.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Radha Madan Mohan Temple</h1>
+                                </a>
+                                <br>
+                                Shri Radha Madan Mohan Temple, is a Hindu temple
+                                situated in Vrindavan. It is one of the oldest and highly revered temple
+                                of Vrindavan.
+                            </p>
+                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ranganathaswamy_temple" class="reveal fade-left row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Shri Ranganatha Swamy Temple</h1>
+                                </a>
+                                <br>
+                                A beautifully carved temple
+                                complex, is located in Srirangapatna in the south-western state of
+                                Karnataka.
+                            </p>
+                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Konarka_Temple.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div id="kailasha_temple" class="reveal fade-right row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Kailasha_temple.JPG" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Kailasha temple, Chh.Sambhaji Nagar</h1>
+                                </a>
+                                <br>
+                                The Kailasha temple is the largest monolithic rock-cut
+                                structure in the world located in cave 16 of Ellora Caves.
+                            </p>
+                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="shore_temple" class="reveal fade-left row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Shore Temple, Mahabalipuram</h1>
+                                </a>
+                                <br>
+                                Shore Temple is one of the oldest South Indian temples
+                                constructed in the Dravidian style and depicts the royal taste of the
+                                Pallava dynasty.
+                            </p>
+                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/shore_temple.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div id="hampi_temple" class="reveal fade-right row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/hampi.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Hazara Rama Temple, Hampi</h1>
+                                </a>
+                                <br>
+                                It referred to as the Ramachandra temple in
+                                inscriptions, occupied the western part of the urban core in the royal
+                                centre section of Hampi.
+                            </p>
+                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="brahadeshwara_Temple" class="reveal fade-left row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Brahadeshwara Temple, Thanjevur</h1>
+                                </a>
+                                <br>
+                                The biggest attraction of Thanjavur - The Brahadeshwara
+                                Temple, also known as the Big Temple.
+                            </p>
+                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Brahadeshwara_Temple.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div id="badrinath_temple" class="reveal fade-right row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Badrinath_Temple.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Badrinath Temple, Badrinath</h1>
+                                </a>
+                                <br>
+                                Badrinath Temple or the Badrinarayan Temple dedicated
+                                to Lord Vishnu is one of the four Char Dham pilgrimage yatras.
+                            </p>
+                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="dwarka_temple" class="reveal fade-left row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Dwarkadhish Temple, Dwarka</h1>
+                                </a>
+                                <br>
+                                Dwarkadhish Temple also known as the Jagat Mandir, is a
+                                Chalukya styled architecture, dedicated to Lord Krishna.
+                            </p>
+                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/dwarka.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div id="kumbeshwar_temple" class="reveal fade-right row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Kumbeshwara_Temple.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Kumbeshwara Temple, Kumbakonam</h1>
+                                </a>
+                                <br>
+                                Believed to have been constructed in the 7th century
+                                A.D by the Cholas, It is one of the grandest and the oldest Shiva temple
+                                in the town.
+                            </p>
+                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="airavatesvara_Temple" class="reveal fade-left row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Airavatesvara Temple, Kumbakonam</h1>
+                                </a>
+                                <br>
+                                Airavatesvara Temple is a revered Hindu temple and a
+                                UNESCO world heritage site. Part of the popular trio the Great Living
+                                Chola Temple.
+                            </p>
+                            <a href="./auth.html" class="btn btn-primary">read more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Airavatesvara_Temple.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer class="text-center text-lg-start text-white"
+        style="background-color: white;border-radius: 35px;margin-bottom: 80px;margin-top: 100px;">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-between p-4" style="background-color: #9cc3cd;color: #2e006c;">
+            <!-- Left -->
+            <div class="me-5">
+                <span>Get connected with us on social networks:</span>
+            </div>
+            <!-- Right -->
+            <div>
+                <a href="./auth.html" class="text-white me-4">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="./auth.html" class="text-white me-4">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="./auth.html" class="text-white me-4">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="./auth.html" class="text-white me-4">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="./auth.html" class="text-white me-4">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="./auth.html" class="text-white me-4">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </section>
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold">Legacy Of Stones</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px;" />
+                        <p style="color: #2e006c;text-align: justify;">
+                            Hey.! At Legacy of Stones, we invite you to delve into the heart of India's oldest
+                            temples. Witness the timeless heritage etched in stone, and experience the magic of
+                            architectural brilliance through the ages.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Products</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px" />
+                        <p>
+                            <a href="#">Tour Guides</a>
+                        </p>
+                        <p>
+                            <a href="#">Tours & Travels</a>
+                        </p>
+                        <p>
+                            <a href="#">Luxury Residences</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Useful links</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px" />
+                        <p>
+                            <a href="#">Your Account</a>
+                        </p>
+                        <p>
+                            <a href="#">Become an Affiliate</a>
+                        </p>
+                        <p>
+                            <a href="#">Help</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Contact</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px" />
+                        <p><i class="fas fa-home mr-3"></i> ZCOER, Narhe     , Pune - 411041</p>
+                        <p><i class="fas fa-envelope mr-3"></i> pratikkor@legacyofstones.com</p>
+                        <p><i class="fas fa-phone mr-3"></i> + 91 1010101010</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: #9cc3cd;font-size: 13px;color: #14022b;">
+            © 2024 Copyright : LEGACY OF STONES ™ . All Rights Reserved
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+</body>
+
+</html>

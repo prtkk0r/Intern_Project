@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Of Stones</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stoke:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lemon&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stoke:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&display=swap"
+        rel="stylesheet">
+
+    <style>
+        .reveal {
+            position: relative;
+            opacity: 0;
+        }
+
+        .reveal.active {
+            opacity: 1;
+        }
+
+        .active.fade-bottom {
+            animation: fade-bottom 0.5s ease-in;
+        }
+
+        .active.fade-left {
+            animation: fade-left 0.5s ease-in;
+        }
+
+        .active.fade-right {
+            animation: fade-right 0.5s ease-in;
+        }
+
+        @keyframes fade-bottom {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-left {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-right {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+    <script defer>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+    </script>
+
+</head>
+
+<body>
+
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"
+                style="font-family: Lemon, serif;font-style: normal;margin-right: 30px;font-size: 30px;">Legacy
+                Of
+                Stones</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="./auth.html" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Our Collections
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#lingraj_temple">lingaraj Temple</a></li>
+                            <li><a class="dropdown-item" href="#sun_temple">Sun Temple</a></li>
+                            <li><a class="dropdown-item" href="#radha_temple">Shri Radha Madan Mohan Temple</a></li>
+                            <li><a class="dropdown-item" href="#ranganathaswamy_temple">Ranganathaswamy Temple</a></li>
+                            <li><a class="dropdown-item" href="#kailasha_temple">Kailasha Temple</a></li>
+                            <li><a class="dropdown-item" href="#shore_temple">Shore Temple</a></li>
+                            <li><a class="dropdown-item" href="#hampi_temple">Hampi Virupaksha Temple</a></li>
+                            <li><a class="dropdown-item" href="brahadeshwara_Temple">Brahadeshwara Temple</a></li>
+                            <li><a class="dropdown-item" href="#badrinath_temple">Badrinath Temple</a></li>
+                            <li><a class="dropdown-item" href="#dwarka_temple">Dwarkadhish Temple</a></li>
+                            <li><a class="dropdown-item" href="#kumbeshwar_temple">Kumbeshwara Temple</a></li>
+                            <li><a class="dropdown-item" href="#airavatesvara_Temple">Airavatesvara Temple</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- marquee -->
+    <section class="loop">
+        <p class="loop-text">जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय
+            श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681;
+            जय श्री राम &#128681;</p>
+        <p class="loop-text">जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय
+            श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681; जय श्री राम &#128681;
+            जय श्री राम &#128681;</p>
+    </section>
+
+    <!-- content -->
+    <section>
+        <div class="container px-4 glass-text">
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data" style="font-size: 30px;">
+                    <hr>
+                    <h1 style="text-align: center;font-family: lemon;">- - - Legacy Of Stones - - -</h1>
+                    <hr>
+                    <br>
+                    <p>
+                        Welcome to '<b>Legacy of Stones</b>,' a virtual journey through the ancient marvels that stand
+                        as
+                        testaments to India's rich cultural and spiritual heritage. Immerse yourself in the mystical
+                        allure of the oldest temples scattered across this diverse land, each stone narrating a timeless
+                        story of devotion, craftsmanship, and history. Explore the intricate architecture, delve into
+                        the spiritual significance, and uncover the secrets embedded in the hallowed grounds. Join us as
+                        we traverse the corridors of time, celebrating the enduring legacy of these sacred stones that
+                        echo the profound spirituality of India.
+                        <br>
+                    </p>
+                    <br>
+                </div>
+            </div>
+
+            <div id="lingraj_temple" class="reveal fade-right row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/lingraj_temple.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html" title="Get more insights">
+                                    <h1>Lingaraj Temple, Bhubaneswar</h1>
+                                </a>
+                                <br>
+                                The Lingaraj Temple is an ancient temple situated in
+                                the city of Bhubaneswar and is the largest one situated in the city.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data">
+                    <p>
+                    <h1>The Lingaraj Temple</h1>
+                    The Lingaraj Temple is an ancient temple situated in the city of Bhubaneswar and is the largest one
+                    situated in the city. Dedicated to Lord Shiva as the name suggests, the temple was built in the 7th
+                    century by King Jajati Keshari. It is highly revered because of the fact that the Linga here, a
+                    manifestation of Lord Shiva, is believed to have appeared naturally. It rises to a massive height of
+                    8 inches above the floor level and is about 8 feet in diameter as well. Lingaraj Temple is located
+                    in the old part of Bhubaneswar Town and can be easily reached using local transport.
+                    <br>
+                    The edifice of the temple is a great example of the Odissi style of architecture and has intricately
+                    designed stone vaults covering the main sanctum of the temple. A small temple dedicated to Goddess
+                    Bhagawati is located in the northwest corner of the courtyard as well. However, entry is restricted
+                    to the followers of the Hindu faith only. The Lingaraj Temple is especially famous for its
+                    Mahashivratri celebrations when the whole sanctum is dressed up in flowers, lanterns, and lights.
+                    The temple has as many as 6,000 visitors on a daily basis with Shivratri being a major day of
+                    celebrations when this number surges to as many as 200,000 visitors.
+                    </p>
+                    <hr>
+                </div>
+            </div>
+
+            <div id="sun_temple" class="reveal fade-left row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Sun Temple, Konark</h1>
+                                </a>
+                                <br>
+                                Situated on the northeastern corner of Puri, Konark Sun
+                                Temple is a UNESCO World Heritage site and prime tourist attractions of
+                                Odisha.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Konarka_Temple.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data">
+                    <p>
+                    <h1>The Sun Temple</h1>
+                    Situated on the northeastern corner of Puri, Konark Sun Temple is a UNESCO World Heritage site and
+                    one of the prime tourist attractions of Odisha. Built in the form of a giant rath or chariot of the
+                    Sun God, it depicts the chariot being pulled by a set of seven horses, four on the left side and
+                    three on the right. It has three deities dedicated to the Sun God on three different sides of the
+                    temple which catch the direct rays of sun in the morning, afternoon and evening. There is also a
+                    dedicated archaeological museum inside the temple complex. The temple transforms into a stage during
+                    The Konark Dance Festival, which is held every year usually in February and attracts a lot of
+                    foreign and Indian tourists — dedicated to devotees of the Sun God.
+                    <br>
+                    Konark Sun Temple is one of the last standing structures before the fifteenth century in the
+                    country. The sun rays reach the Nata Mandir from the coast and reflect through the diamond at the
+                    centre of the idol. The idol is believed to float mid-air due to arrangements of the magnets at the
+                    top of the temple but they were later removed due to the disturbance caused to coastal voyages. An
+                    engineering and artistic masterpiece, The Sun Temple has been standing stoically for the last two
+                    thousand years. Despite much of the temple in ruin, it still reflects the artistic genius of
+                    architects and sculptures of the time.
+                    </p>
+                    <hr>
+                </div>
+            </div>
+
+            <div id="radha_temple" class="reveal fade-right row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/sri_radha_madan_mohan_temple_vrindavan.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Radha Madan Mohan Temple</h1>
+                                </a>
+                                <br>
+                                Shri Radha Madan Mohan Temple, is a Hindu temple
+                                situated in Vrindavan. It is one of the oldest and highly revered temple
+                                of Vrindavan.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data">
+                    <p>
+                    <h1>Shri Radha Madan Mohan Temple</h1>
+                    Madan Mohan Temple, also known as Sri Radha Madana Mohan Temple, is the oldest temple in Vrindavan.
+                    Located close to Kaliya Ghat, on Dwadashaditya hill overlooking Yamuna River, it is 50ft high. It is
+                    believed
+                    that Lord Krishna rested at this site after conquering Kaliya Naag. Radha and Lalita Sakhi are
+                    worshipped here along with Madana Mohan (Sri Krishna).
+                    The view of Vrindavan from the temple is stunning.
+                    <br>
+                    Madan Mohan Temple is believed to be originally built by great-grandson of Lord Krishna - Vajranabh.
+                    Despite being so old, the architecture depicts exquisite craftsmanship. While the central tower
+                    houses idols
+                    of Radha, Krishna and Lalita Sakhi, the right tower houses the bhajan kutir and samadhi (cenotaph)
+                    of
+                    Sri Sanatana Goswami. The left tower remains closed. The Advaita Vat is also housed inside Madan
+                    Mohan Temple.
+                    It is the oldest banyan tree in Vrindavan. </p>
+                    <hr>
+                </div>
+            </div>
+
+            <div id="ranganathaswamy_temple" class="reveal fade-left row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Shri Ranganatha Swamy Temple</h1>
+                                </a>
+                                <br>
+                                A beautifully carved temple
+                                complex, is located in Srirangapatna in the south-western state of
+                                Karnataka.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Konarka_Temple.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data">
+                    <p>
+                    <h1>Shri Ranganathaswamy Temple</h1>
+                    Sri Ranganathaswamy Temple is situated in Srirangam Town of Trichy.
+                    The temple is devoted to Lord Ranganatha, a reclining form of Lord Vishnu.
+                    The temple complex along with the surrounding area covers a total area of 156 acres.
+                    <br>
+                    It has been constructed in Dravidian style of architecture The temple is the largest
+                    functional temple in the world. The outstanding architecture of the temple includes 21 surrounding
+                    'gopurams' along with an ornate gateway, which is also the tallest 'gopuram' of India. There is also
+                    a royal temple tower in the place, which covers a base area of 32500 sq. ft and has a
+                    height of 196 ft.The temple also has a hall with nearly 1000 decorated pillars.</p>
+                    <hr>
+                </div>
+            </div>
+
+            <div id="kailasha_temple" class="reveal fade-right row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Kailasha_temple.JPG" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Kailasha temple, Chh.Sambhaji Nagar</h1>
+                                </a>
+                                <br>
+                                The Kailasha temple is the largest monolithic rock-cut
+                                structure in the world located in cave 16 of Ellora Caves.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data">
+                    <p>
+                    <h1>The Kailasha Temple</h1>
+                    The Kailasha or Kailashanatha temple is the largest monolithic rock-cut structure in the world
+                    located in cave 16 of Ellora Caves in Aurangabad, Maharashtra. Carved out of single basalt rock from
+                    Charanandri Hills, it is one of the exceptional temples of India owing to its massive
+                    size, amazing architecture and mind-boggling carvings. With its intricate designs on panels,
+                    monolithic
+                    pillars and statues of animals and deities, Kailasa Temple is an engineering marvel perfect for
+                    history and
+                    architecture lovers.
+                    <br>
+                    Constructed in the 8th century under the direction of Krishna I, the temple is dedicated to Hindu
+                    deity, Lord Shiva.
+                    Associated with many legends, the temple stuns every visitor as only one rock has been carved
+                    immaculately using
+                    only traditional methods. Considered similar to Virupaksha temple of northern Karnataka, it was
+                    built in 18 years
+                    using 2,00,000 tonnes of rock. </p>
+                    <hr>
+                </div>
+            </div>
+
+            <div id="shore_temple" class="reveal fade-left row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Shore Temple, Mahabalipuram</h1>
+                                </a>
+                                <br>
+                                Shore Temple is one of the oldest South Indian temples
+                                constructed in the Dravidian style and depicts the royal taste of the
+                                Pallava dynasty.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/shore_temple.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data">
+                    <p>
+                    <h1>The Shore Temple</h1>
+                    Unlike most of its neighbours at the site, it is built of cut stones rather than carved out of
+                    caves. It has
+                    two shrines, one dedicated to Shiva and the other to Vishnu. Its style is characterized
+                    by a pyramidal kutina-type tower that consists of stepped stories topped by a cupola and finial, a
+                    form
+                    quite different from the northern Indian sikhara.
+                    <br>
+                    The Mamallapuram monuments and temples, including the Shore Temple complex, were collectively
+                    designated a UNESCO World Heritage site in 1984.</p>
+                    <hr>
+                </div>
+            </div>
+
+            <div id="hampi_temple" class="reveal fade-right row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/hampi.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Hazara Rama Temple, Hampi</h1>
+                                </a>
+                                <br>
+                                It referred to as the Ramachandra temple in
+                                inscriptions, occupied the western part of the urban core in the royal
+                                centre section of Hampi.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data">
+                    <p>
+                    <h1>Hazara Rama Temple</h1>
+                    Hazara Rama Temple is a dominant shrine in Karnataka. This small but beautiful place of worship
+                    dedicated to Lord Rama is located at the center of the royal area of Hampi. The temple which was the
+                    private temple of the kings of Vijayanagara is popular for the lovely relics and panels depicting
+                    the story of the epic Ramayana.
+                    <br>
+                    It was built in the early 15th century by King of Vijayanagara, Devaraya II, and was constructed as
+                    a simple structure. It comprised of only a sanctum, pillared hall, and an Ardha mandapa. However,
+                    later it was revamped for an open porch and beautiful pillars. A lawn is situated on the northern
+                    side of the temples and two large gateways lead to the temple compound.
+                    <br>
+                    The Temple which is a distinctive temple in many aspects has obtained its name from the multiple
+                    relics portraying the prime deity of the temple, Lord Rama. The walls convey the story of Ramayana
+                    carved on stone. The outer walls of the temple are embellished with bas-relics of Rama and Krishna.
+                    <br>
+                    The relics also depict processions of horses, elephants, attendants, soldiers, and dancing women
+                    taking part in the Dasara festival rally at that time. There are amongst the most unique ones to be
+                    found anywhere in India. The Temple stands as an example of the marvelous craftsmanship of
+                    Vijayanagara’s sculpture.</p>
+                    <hr>
+                </div>
+            </div>
+
+            <div id="brahadeshwara_Temple" class="reveal fade-left row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Brahadeshwara Temple, Thanjevur</h1>
+                                </a>
+                                <br>
+                                The biggest attraction of Thanjavur - The Brahadeshwara
+                                Temple, also known as the Big Temple.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Brahadeshwara_Temple.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data">
+                    <p>
+                    <h1>The Brahadeshwara Temple</h1>
+                    The biggest attraction of Thanjavur - The Brihadeeswara Temple, also known as the Big Temple. Built
+                    during the reign of the Great Chola emperor, Raja Raja Chola, this temple is an architectural
+                    marvel.<br>
+                    It was built in the early 15th century by King of Vijayanagara, Devaraya II, and was constructed as
+                    a simple structure. It comprised of only a sanctum, pillared hall, and an Ardha mandapa. However,
+                    later it was revamped for an open porch and beautiful pillars. A lawn is situated on the northern
+                    side of the temples and two large gateways lead to the temple compound.
+                    <br>
+                    Protected by deep trenches on either sides and the Grand Anaicut River running through another, this
+                    temple is a favorite among the pilgrims. The shrine itself is a 216 feet structure. The sanctum is
+                    dotted with paintings from the Chola and Nayak periods. The statue of Nandi the Bull welcomes at the
+                    entrance</p>
+                    <hr>
+                </div>
+            </div>
+
+            <div id="badrinath_temple" class="reveal fade-right row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Badrinath_Temple.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Badrinath Temple, Badrinath</h1>
+                                </a>
+                                <br>
+                                Badrinath Temple or the Badrinarayan Temple dedicated
+                                to Lord Vishnu is one of the four Char Dham pilgrimage yatras.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data">
+                    <p>
+                    <h1>Badrinath Temple</h1>
+                    Badrinath, known for the sacred Badrinath Temple dedicated to Lord Vishnu is one of the four Char
+                    Dham and Chota Char Dham pilgrimage yatras. Perched on the Garhwal hill tracks, near the Alaknanda
+                    River, Badrinath is situated in the Chamoli district of Uttarakhand. Placed between Nar and Narayan
+                    mountain ranges, Badrinath Temple is situated in the backdrop of the mighty Neelkanth mountain and
+                    is known for stunning natural beauty.
+                    <br>
+                    Situated at the height of 10,279 feet, the Badrinath Temple is believed to be originally established
+                    by the saint, Adi Shankaracharya. The temple houses a black stone idol of Lord Vishnu which is 1m
+                    tall and is considered to be one of the 8 swayam vyakta kshetras or self-manifested statues of
+                    Vishnu. It also finds its mention in the 108 Divya Desams devoted to Lord Vishnu in India.
+                    <br>
+                    Badrinath Temple remains closed for six months from November to April each year. The temple is
+                    closed for worship on the auspicious day of bhatridwityia in October. On the day of the closure, an
+                    Akhanda Jyoti lamp is lit to last for six months and the image of Badrinath is transferred to
+                    Narasimha temple at Jyotirmath. Badrinath reopens on Akshaya Tritiya, an auspicious day in April
+                    every year.
+                    <br>
+                    Badrinath Temple has a Tapt Kund, a hot sulphur spring that is considered to have medicinal values.
+                    River Alaknanda is known to originate from here. The festivals of Mata Murti Ka Mela and the Badri
+                    Kedar Festival give you another reason to visit the temple.</p>
+                    <hr>
+                </div>
+            </div>
+
+            <div id="dwarka_temple" class="reveal fade-left row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Dwarkadhish Temple, Dwarka</h1>
+                                </a>
+                                <br>
+                                Dwarkadhish Temple also known as the Jagat Mandir, is a
+                                Chalukya styled architecture, dedicated to Lord Krishna.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/dwarka.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data">
+                    <p>
+                    <h1>Dwarkadhish Temple</h1>
+                    Dwarkadhish Temple also known as the Jagat Mandir, is a Chalukya styled architecture, dedicated to
+                    Lord Krishna. The town of Dwarka has its history dated back to the Kingdom of Dwaraka in
+                    Mahabharata. The five storied main shrine is grand and marvelous in itself constructed of limestone
+                    and sand. The 2200-year-old architecture, is believed to be built by Vajranabha, who constructed it
+                    over the land reclaimed from the sea by Lord Krishna.
+                    <br>
+                    The temple showcases intricate sculptural detailing done by the ancestral dynasties that ruled the
+                    region and the black magnificent idol of Lord Krishna. There are other shrines within the temple
+                    which are devoted to Subhadra, Balarama and Revathy, Vasudeva, Rukmini and many others.
+                    <br>
+                    The devotees are expected to take a dip in the Gomti river before proceeding into the temple through
+                    the Swarg Dwar. The eve of Janmashtmi is the most special occasion in any Krishna temple, the
+                    Dwarkadhish temple is adorned by thousands of devotees chanting prayers and rituals. The shrine is a
+                    hive of colours, voices and faith transforming itself into inner silence and sanctity.</p>
+                    <hr>
+                </div>
+            </div>
+
+            <div id="kumbeshwar_temple" class="reveal fade-right row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Kumbeshwara_Temple.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Kumbeshwara Temple, Kumbakonam</h1>
+                                </a>
+                                <br>
+                                Believed to have been constructed in the 7th century
+                                A.D by the Cholas, It is one of the grandest and the oldest Shiva temple
+                                in the town.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data">
+                    <p>
+                    <h1>The Kumbeshwara Temple</h1>
+                    The Lingaraj Temple is an ancient temple situated in the city of Bhubaneswar and is the largest one
+                    situated in the city. Dedicated to Lord Shiva as the name suggests, the temple was built in the 7th
+                    century by King Jajati Keshari. It is highly revered because of the fact that the Linga here, a
+                    manifestation of Lord Shiva, is believed to have appeared naturally. It rises to a massive height of
+                    8 inches above the floor level and is about 8 feet in diameter as well. Lingaraj Temple is located
+                    in the old part of Bhubaneswar Town and can be easily reached using local transport.
+                    <br>
+                    The edifice of the temple is a great example of the Odissi style of architecture and has intricately
+                    designed stone vaults covering the main sanctum of the temple. A small temple dedicated to Goddess
+                    Bhagawati is located in the northwest corner of the courtyard as well. However, entry is restricted
+                    to the followers of the Hindu faith only. The Lingaraj Temple is especially famous for its
+                    Mahashivratri celebrations when the whole sanctum is dressed up in flowers, lanterns, and lights.
+                    The temple has as many as 6,000 visitors on a daily basis with Shivratri being a major day of
+                    celebrations when this number surges to as many as 200,000 visitors.
+                    </p>
+                    <hr>
+                </div>
+            </div>
+
+            <div id="airavatesvara_Temple" class="reveal fade-left row gx-5">
+                <div class="col">
+                    <div class="p-3">
+                        <div class="info">
+                            <p><a href="./auth.html">
+                                    <h1>Airavatesvara Temple, Kumbakonam</h1>
+                                </a>
+                                <br>
+                                Airavatesvara Temple is a revered Hindu temple and a
+                                UNESCO world heritage site. Part of the popular trio the Great Living
+                                Chola Temple.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3">
+                        <img class="cont-img" src="../static/images/Airavatesvara_Temple.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-right row gx-5">
+                <div class="more-data">
+                    <p>
+                    <h1>The Airavatesvara Temple</h1>
+                    Located in the town of Darasuram near Kumbakonam in Tamil Nadu, Airavatesvara Temple is a revered
+                    Hindu temple and a UNESCO world heritage site. Part of the popular trio known as the Great Living
+                    Chola Temple along with Brihadeeswara Temple at Thanjavur and the Gangaikondacholisvaram Temple at
+                    Gangaikonda Cholapuram, Airavatesvara Temple was built by the Chola King Rajaraja Chola II in the
+                    12th century CE. Presided by the Hindu God Lord Shiva, the temple is amongst the eighteen medieval
+                    era Hindu temples in the Kumbakonam area. The shrine displays the Vaishnavism and Shaktism legs of
+                    Hinduism, and the traditional Nayanars- the Bhakti saints of Shaivism.
+                    <br>
+                    Constructed in the chariot structure and built in stone, the temple has smaller shrines dedicated to
+                    several Vedic and Puranic deities including Indra, Agni, Varuna, Vayu, Brahma, Surya, Vishnu,
+                    Saptamtrikas, Durga, Saraswati, Sri devi (Lakshmi), Ganga, Yamuna, Subrahmanya, Ganesha, Kama, Rati
+                    and others. Lord Shiva’s spouse has a smaller shrine towards the northern side of the temple
+                    premises known as Periya Nayaki Amman. Lately, some of the temple is in a crumpled state with the
+                    gopurams entirely in ruins. However, the main shrine and the associated sanctums still stand sturdy.
+                    The temple attracts pilgrims and devotees in thousands annually especially during the month of Magha
+                    for several special poojas.</p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer class="text-center text-lg-start text-white"
+        style="background-color: white;border-radius: 35px;margin-bottom: 80px;margin-top: 100px;">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-between p-4" style="background-color: #9cc3cd;color: #2e006c;">
+            <!-- Left -->
+            <div class="me-5">
+                <span>Get connected with us on social networks:</span>
+            </div>
+            <!-- Right -->
+            <div>
+                <a href="./auth.html" class="text-white me-4">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="./auth.html" class="text-white me-4">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="./auth.html" class="text-white me-4">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="./auth.html" class="text-white me-4">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="./auth.html" class="text-white me-4">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="./auth.html" class="text-white me-4">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </section>
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold">Legacy Of Stones</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px;" />
+                        <p style="color: #2e006c;text-align: justify;">
+                            Hey.! At Legacy of Stones, we invite you to delve into the heart of India's oldest
+                            temples. Witness the timeless heritage etched in stone, and experience the magic of
+                            architectural brilliance through the ages.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Products</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px" />
+                        <p>
+                            <a href="#">Tour Guides</a>
+                        </p>
+                        <p>
+                            <a href="#">Tours & Travels</a>
+                        </p>
+                        <p>
+                            <a href="#">Luxury Residences</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Useful links</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px" />
+                        <p>
+                            <a href="#">Your Account</a>
+                        </p>
+                        <p>
+                            <a href="#">Become an Affiliate</a>
+                        </p>
+                        <p>
+                            <a href="#">Help</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Contact</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #7c4dff; height: 2px" />
+                        <p><i class="fas fa-home mr-3"></i> ZCOER, Narhe , Pune - 411041</p>
+                        <p><i class="fas fa-envelope mr-3"></i> pratikkor@legacyofstones.com</p>
+                        <p><i class="fas fa-phone mr-3"></i> + 91 1010101010</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: #9cc3cd;font-size: 13px;color: #14022b;">
+            © 2024 Copyright : LEGACY OF STONES ™ . All Rights Reserved
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+</body>
+
+</html>
